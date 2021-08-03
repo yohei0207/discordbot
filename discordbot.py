@@ -51,8 +51,7 @@ def get_data(message):
 
 @bot.event
 async def on_message(message):
-    if message.content == '/mem':
-        message.channel.send(get_data(message))
+    message.channel.send(get_data(message))
 
 
 bot.run(token)
