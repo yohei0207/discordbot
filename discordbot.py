@@ -5,7 +5,6 @@ import discord
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-client = discord.Client()
 
 
 @bot.event
@@ -24,11 +23,11 @@ async def ping(ctx):
 async def nya(ctx):
     await ctx.send('nya')
 
-@client.event
+@bot.event
 async def on_ready():
     print('ready')
     CHANNEL_ID = 1234567890123456
-    channel = client.get_channel(CHANNEL_ID)
+    channel = bot.get_channel(CHANNEL_ID)
     await channel.send('ぱんつ')
 
 bot.run(token)
