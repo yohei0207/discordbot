@@ -30,11 +30,11 @@ async def wan(ctx):
 @bot.command()
 async def drink(ctx):
     embed=discord.Embed(title='DRINKS')
-    embed.add_field(name='ビール', value=':beer:', inline = False)
-    embed.add_field(name='ワイン', value=':wine_glass:', inline = False)
-    embed.add_field(name='ウイスキー', value=':wihisky:', inline = False)
-    embed.add_field(name='その他', value=':cocktail:', inline = False)
-    embed.add_field(name='ジュース', value=':tropical_drink:', inline = False)
+    embed.add_field(name='ビール', value=':beer:')
+    embed.add_field(name='ワイン', value=':wine_glass:')
+    embed.add_field(name='ウイスキー', value=':whisky:')
+    embed.add_field(name='その他', value=':cocktail:')
+    embed.add_field(name='ジュース', value=':tropical_drink:')
     await ctx.send(embed=embed)
 
 bot.run(token)
