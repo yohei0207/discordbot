@@ -5,8 +5,7 @@ import discord
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
-intents = discord.Intents.defalut()
-intents.member = True
+
 client = discord.Client(intents=intents)
 bot = commands.Bot(command_prefix="/")
 
@@ -40,17 +39,6 @@ async def drink(ctx):
     embed.add_field(name='その他', value=':cocktail:')
     embed.add_field(name='ジュース', value=':tropical_drink:')
     await ctx.send(embed=embed)
-
-def get_data(message):
-    command = message.content
-    data_table = {
-        '/members': message.guild.members, # メンバーのリスト
-        '/roles': message.guild.roles, # 役職のリスト
-        '/text_channels': message.guild.text_channels, # テキストチャンネルのリスト
-        '/voice_channels': message.guild.voice_channels, # ボイスチャンネルのリスト
-        '/category_channels': message.guild.categories, # カテゴリチャンネルのリスト
-    }
-    return data_table.get(command, '無効なコマンドです')
 
 @client.command()
 async def mem(ctx):
