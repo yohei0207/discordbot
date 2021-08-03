@@ -24,9 +24,4 @@ async def nya(ctx):
     await ctx.send('nya')
 
 
-@bot.command()
-async def drinks(ctx):
-    embed = discord.Embed(title='ビール', description='hoge')
-    await ctx.send(embed = embed)
-
 bot.run(token)
