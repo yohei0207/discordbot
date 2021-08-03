@@ -6,7 +6,6 @@ import discord
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
-client = discord.Client()
 bot = commands.Bot(command_prefix="/")
 
 
@@ -39,10 +38,6 @@ async def drink(ctx):
     embed.add_field(name='その他', value=':cocktail:')
     embed.add_field(name='ジュース', value=':tropical_drink:')
     await ctx.send(embed=embed)
-
-@client.command()
-async def mem(ctx):
-    await ctx.send(ctx.channel.members)
 
 @bot.command()
 async def mem2(ctx):
