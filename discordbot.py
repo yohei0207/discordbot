@@ -7,7 +7,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
-bot = commands.Bot(command_prefix="/", intents=intents)
+bot = commands.Bot(command_prefix="/")
 
 
 @bot.event
@@ -51,7 +51,7 @@ def get_data(message):
     }
     return data_table.get(command, '無効なコマンドです')
 
-@client.event
+@client.command()
 async def mem(ctx):
     await ctx.send(ctx.channel.members)
 
