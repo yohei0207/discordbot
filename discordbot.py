@@ -1,6 +1,7 @@
 from discord.ext import commands
 import os
 import traceback
+import discord
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -26,7 +27,9 @@ async def nya(ctx):
 async def wan(ctx):
     await ctx.send('wan')
 
-
-
+@bot.command()
+async def test5(ctx):
+    embed=discord.Embed(title='テスト', description='パンツ')
+    await ctx.send(embed=embed)
 
 bot.run(token)
