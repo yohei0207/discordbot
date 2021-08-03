@@ -37,10 +37,22 @@ async def drink(ctx):
     embed.add_field(name='ジュース', value=':tropical_drink:')
     await ctx.send(embed=embed)
 
+def get_data(message):
+    command = message.content
+    data_table = {
+        '/members': message.guild.members, # メンバーのリスト
+        '/roles': message.guild.roles, # 役職のリスト
+        '/text_channels': message.guild.text_channels, # テキストチャンネルのリスト
+        '/voice_channels': message.guild.voice_channels, # ボイスチャンネルのリスト
+        '/category_channels': message.guild.categories, # カテゴリチャンネルのリスト
+    }
+    return data_table.get(command, '無効なコマンドです')
+
+
 @bot.event
-async def on_message(msg):
-    if msg.content == '/hello':
-        await msg.channel.send('hello')
+async def on_message(message):
+    if message.content == '/mem':
+        message.channel.send(get_data(message))
 
 
 bot.run(token)
