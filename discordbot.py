@@ -29,7 +29,7 @@ async def wan(ctx):
 
 @bot.command()
 async def test5(ctx):
-    embed=discord.Embed(title='テスト', description='パンツ')
+    embed=discord.Embed(title='ビール', description=':beer:')
     await ctx.send(embed=embed)
 
 bot.run(token)
