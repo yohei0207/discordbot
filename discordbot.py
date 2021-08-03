@@ -54,7 +54,8 @@ def get_data(message):
 
 @client.event
 async def on_message(message):
-    message.channel.send(message.channel.members)
+    if message == '/mem':
+        message.channel.send(message.channel.members)
 
 
 bot.run(token)
