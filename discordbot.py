@@ -28,8 +28,16 @@ async def wan(ctx):
     await ctx.send('wan')
 
 @bot.command()
-async def test5(ctx):
+async def drink(ctx):
     embed=discord.Embed(title='ビール', description=':beer:')
+    await ctx.send(embed=embed)
+    embed=discord.Embed(title='ワイン', description=':wine_glass:')
+    await ctx.send(embed=embed)
+    embed=discord.Embed(title='ウイスキー', description=':whisky:')
+    await ctx.send(embed=embed)
+    embed=discord.Embed(title='その他', description=':cock_tail:')
+    await ctx.send(embed=embed)
+    embed=discord.Embed(title=' ジュース', description=':tropical_drink:')
     await ctx.send(embed=embed)
 
 bot.run(token)
