@@ -23,11 +23,6 @@ async def ping(ctx):
 async def nya(ctx):
     await ctx.send('nya')
 
-@bot.event
-async def on_ready():
-    print('ready')
-    CHANNEL_ID = 1234567890123456
-    channel = bot.get_channel(CHANNEL_ID)
-    await channel.send('ぱんつ')
+
 
 bot.run(token)
