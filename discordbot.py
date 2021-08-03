@@ -18,7 +18,7 @@ async def on_command_error(ctx, error):
 
 
 
-TOKEN = "AAAAA"
+TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
 headers = {
     "Authorization": "Bot AAAAA"
