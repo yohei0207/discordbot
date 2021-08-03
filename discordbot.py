@@ -37,10 +37,6 @@ async def drink(ctx):
     embed.add_field(name='ジュース', value=':tropical_drink:')
     await ctx.send(embed=embed)
 
-@bot.event
-async def on_message(msg):
-    if msg.content == '/hello':
-        await msg.channel.send('hello')
 
 
 bot.run(token)
