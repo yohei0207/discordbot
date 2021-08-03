@@ -1,7 +1,6 @@
 from discord.ext import commands
 import os
 import traceback
-import random
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -18,18 +17,11 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
-@bot.command()
-async def neko(ctx):
-    await ctx.send('nya')
 
 @bot.command()
-async def talk(ctx):
-    count = 0
-    f = open('talk.txt', 'r')
-    datalist = f.readlines()
-    for data in datalist:
-        count+=1
-    r = random.randint(0, count-1)
-    await ctx.send(datalist[r])
+async def nya(ctx):
+    await ctx.send('nya')
+
+
 
 bot.run(token)
