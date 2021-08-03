@@ -53,9 +53,13 @@ def get_data(message):
     return data_table.get(command, '無効なコマンドです')
 
 @client.event
-async def on_message(message):
-    if message == '/mem':
-        message.channel.send(message.channel.members)
+async def mem(ctx):
+    await ctx.send(ctx.channel.members)
+
+@bot.command()
+async def mem2(ctx):
+    await ctx.send(ctx.channel.members)
+
 
 
 bot.run(token)
