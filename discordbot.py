@@ -6,7 +6,7 @@ import discord
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
-client = discord.Client(intents=intents)
+client = discord.Client()
 bot = commands.Bot(command_prefix="/")
 
 
