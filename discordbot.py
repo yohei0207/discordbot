@@ -22,5 +22,10 @@ async def ping(ctx):
 async def nya(ctx):
     await ctx.send('nya')
 
+@client.event
+async def on_ready():
+    # 起動したらターミナルにログイン通知が表示される
+    print('ログインしました')
+
 
 bot.run(token)
