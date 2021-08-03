@@ -26,8 +26,9 @@ async def nya(ctx):
 
 @client.event
 async def on_ready():
-    # 起動したらターミナルにログイン通知が表示される
-    print('ログインしました')
-
+    print('ready')
+    CHANNEL_ID = 1234567890123456
+    channel = client.get_channel(CHANNEL_ID)
+    await channel.send('ぱんつ')
 
 bot.run(token)
