@@ -6,6 +6,10 @@ import discord
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
+intents = discord.Intents.default()
+intents.members = True
+client = discord.Client(intents=intents)
+
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -48,10 +52,9 @@ def get_data(message):
     }
     return data_table.get(command, '無効なコマンドです')
 
-
-@bot.event
+@client.event
 async def on_message(message):
-    message.channel.send(get_data(message))
+    message.channel.send(message.channel.members)
 
 
 bot.run(token)
