@@ -3,12 +3,12 @@ import os
 import traceback
 import discord
 
-bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 intents = discord.Intents.default()
 intents.members = True
 client = discord.Client(intents=intents)
+bot = commands.Bot(command_prefix="/", intents=intents)
 
 
 @bot.event
