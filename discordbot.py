@@ -23,5 +23,12 @@ async def ping(ctx):
 async def nya(ctx):
     await ctx.send('nya')
 
+    
+@bot.command()
+async def won(ctx):
+    await ctx.send('won')
+
+
+
 
 bot.run(token)
