@@ -1,60 +1,35 @@
-import discord
 from discord.ext import commands
+import os
+import traceback
 import random
 
-#プレフィック
-client = commands.Bot(command_prefix = '!')
-
-#起動時のイベント
-@client.event
-async def on_ready():
-    print('ready')
-    CHANNEL_ID = 1234567890123
-    channel = client.get_channel(CHANNEL_ID)
-    await channel.send('ぱんつ')
-    #ステータス
-    await client.change_presence(activity=discord.Game(name='起動中'))
-
-#コード1(メッセージ)
-@client.command()
-async def test(ctx):
-    await ctx.send('うひょー')
-    #10秒後に消える
-    await ctx.send('ぱんつ',delete_after=10.0 )
+bot = commands.Bot(command_prefix='/')
+token = os.environ['DISCORD_BOT_TOKEN']
 
 
-#コード2(画像)
-@client.command()
-async def test2(ctx):
-    #10秒後に消える
-    await ctx.send(file=discord.File('送りたい画像のパス'),delete_after=10.0 )
+@bot.event
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    await ctx.send(error_msg)
 
-#part3
-#コード4(ステータス2)
-@client.command()
-async def test3(ctx):
-    await client.change_presence(activity=discord.Game(name='2'))
 
-#コード5(ping)
-@client.command()
-async def test4(ctx):
-    await ctx.send('ping {0} ms'.format(round(client.latency)))
+@bot.command()
+async def ping(ctx):
+    await ctx.send('pong')
 
-#コード6(embed)
-@client.command()
-async def test5(ctx):
-    embed=discord.Embed(title='テスト', description='パンツ')
-    await ctx.send(embed=embed)
+@bot.command()
+async def neko(ctx):
+    await ctx.send('nya')
 
-#コード7(ランダムチョイス)
-#画像の場合await ctx.send(file=discord.File(f'{random.choice(j)}'))
-@client.command()
-async def test6(ctx):
-    j = ['グー',
-         'チョキ',
-         'パー'
-         ]
-    await ctx.send(random.choice(j))
+@bot.command()
+async def talk(ctx):
+    count = 0
+    f = open('talk.txt', 'r')
+    datalist = f.readlines()
+    for data in datalist:
+        count+=1
+    r = random.randint(0, count-1)
+    await ctx.send(datalist[r])
 
-#トークン
-client.run('あなたのとーくん')
+bot.run(token)
