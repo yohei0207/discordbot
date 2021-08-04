@@ -64,8 +64,8 @@ async def drink(ctx):
 async def hito(ctx):
     global members
     
-    members = ctx.channel.members
-    for member in members:
+    all_members = ctx.channel.members
+    for member in all_members:
         members.append(member)
     set(members)
 
