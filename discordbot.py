@@ -20,12 +20,15 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
+
+"""
 @bot.event
 async def on_ready(ctx):
     global members
     all_members = ctx.channel.members
     for member in all_members:
         members.append(member)
+"""
 
 
 
@@ -60,13 +63,11 @@ async def drink(ctx):
 @bot.command()
 async def hito(ctx):
     global members
-    """
+    
     members = ctx.channel.members
     for member in members:
-        await ctx.send(member.name)
-        await ctx.send(member.discrimanator)
-    """
-
+        members.append(member)
+    set(members)
 
     await ctx.send(members)
 
