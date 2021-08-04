@@ -52,7 +52,8 @@ async def drink(ctx):
 async def hito(ctx):
     members = ctx.channel.members
     for member in members:
-        await ctx.send(member)
+        await ctx.send(member['name'])
+        await ctx.send(member['discriminator'])
 
 
     #await ctx.send(ctx.channel.members)
