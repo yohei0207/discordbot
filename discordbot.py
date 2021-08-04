@@ -80,17 +80,36 @@ async def hito(ctx):
     for member in all_members:
         if member.bot == False:
             if nomi_flag == True:
+
                 data = [member.id, 0]
+                data2 = [member.id, 0]
+                data3 = [member.id, 0]
                 beers.append(data)
-                wines.append(data)
-                coaktails.append(data)
+                wines.append(data2)
+                coaktails.append(data3)
+    nomi_flag = False
 
 
-    nomi_flag = False    
+    for member in all_members:
+        if member.bot == False:
+            for br in beers:
+                if br[0] == member.id:
+                    break
+            
+            data = [member.id, 0]
+            data2 = [member.id, 0]
+            data3 = [member.id, 0]
+            beers.append(data)
+            wines.append(data2)
+            coaktails.append(data3)
+
+        
+
     await ctx.send(members)
-    await ctx.send(beers)
-    await ctx.send(wines)
-    await ctx.send(coaktails)
+
+    #await ctx.send(beers)
+    #await ctx.send(wines)
+    #await ctx.send(coaktails)
 
 
 @bot.command()
@@ -105,10 +124,10 @@ async def beer(ctx):
     global beers
     the_member = ctx.author.id
     for br in beers:
+        await ctx.send(br)
         the_id = br[0]
         if the_id == the_member:
             br[1] += 1
-            await ctx.send("hoge")
             break
     
 
