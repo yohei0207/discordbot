@@ -84,15 +84,15 @@ async def hito(ctx):
             coaktails.append(data)
 
     await ctx.send(members)
+    await ctx.send(beers)
+    await ctx.send(wines)
+    await ctx.send(coaktails)
 
 
 @bot.command()
 async def dare(ctx):
     await ctx.send(ctx.author.id)
 
-@bot.command()
-async def dare(ctx):
-    await ctx.send(ctx.author.id)
 
 
 #DRINKS
@@ -106,8 +106,6 @@ async def beer(ctx):
             br[1] += 1
             break
     
-
-
 
 
 @bot.command()
