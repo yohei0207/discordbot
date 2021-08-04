@@ -76,6 +76,7 @@ async def hito(ctx):
 @bot.command()
 async def dare(ctx):
     await ctx.send(ctx.author.id)
+    print("hoge")
 
 
 
