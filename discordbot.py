@@ -1,3 +1,4 @@
+from posix import NGROUPS_MAX
 from discord.ext import commands
 import os
 import traceback
@@ -16,6 +17,8 @@ beers = []
 wines = []
 coaktails = []
 nomi_flag = True
+
+num = 0
 
 
 
@@ -238,10 +241,17 @@ async def on_message(message):
 @bot.event
 async def on_reaction_add(reaction, user):
     # author: リアクションがついたメッセージを書いた人
+    global num
+    num += 1
     await bot.process_commands(reaction)
     author = reaction.message.author
+    
     await bot.send_message(author, f"{user} さんがリアクションをしました")
 
+@bot.command()
+async def hogehoge(ctx):
+    global num
+    await ctx.send(num)
 
 
 bot.run(token)
