@@ -84,9 +84,6 @@ async def dare(ctx):
 
     await ctx.send(members)
 
-@bot.command()
-async def dare(ctx):
-    await ctx.send(ctx.author.id)
 
 
 
