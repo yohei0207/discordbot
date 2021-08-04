@@ -116,9 +116,9 @@ async def beer(ctx):
 @bot.command()
 async def nomi(ctx):
     global beers, wines, coaktails
-    ctx.send(beers)
-    ctx.send(wines)
-    ctx.send(coaktails)
+    await ctx.send(beers)
+    await ctx.send(wines)
+    await ctx.send(coaktails)
 
 
 
