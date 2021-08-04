@@ -15,6 +15,7 @@ members = []
 beers = []
 wines = []
 coaktails = []
+nomi_flag = True
 
 num = 0
 
@@ -67,7 +68,7 @@ async def drink(ctx):
 
 @bot.command()
 async def hito(ctx):
-    global members, beers, wines, coaktails
+    global members, beers, wines, coaktails, nomi_flag
 
     all_members = ctx.channel.members
     for member in all_members:
@@ -78,10 +79,12 @@ async def hito(ctx):
 
     for member in all_members:
         if member.bot == False:
-            data = (member.id, 0)
-            beers.append(data)
-            wines.append(data)
-            coaktails.append(data)
+            if nomi_flag == True:
+                data = {member.id, 0}
+                beers.append(data)
+                wines.append(data)
+                coaktails.append(data)
+                nomi_flag = False
 
     await ctx.send(members)
     await ctx.send(beers)
