@@ -250,7 +250,7 @@ async def on_reaction_add(reaction, user):
 
 
 @bot.command()
-async def greet():
+async def greet(ctx):
     channel = bot.get_channel(871029026163159104)
     await channel.send('おはよう！')
 
