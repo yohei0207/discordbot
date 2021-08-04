@@ -9,7 +9,7 @@ intents = discord.Intents.default()
 intents.members = True
 intents.typing = False
 
-bot = commands.Bot(command_prefix="/")
+bot = commands.Bot(command_prefix="/", intents=intents)
 
 num = 0
 
@@ -47,11 +47,11 @@ async def drink(ctx):
     await ctx.send(embed=embed)
     await ctx.send(num)
 
-"""
+
 @bot.command()
 async def mem2(ctx):
     await ctx.send(ctx.channel.members)
-"""
+
 
 
 
