@@ -45,9 +45,11 @@ async def drink(ctx):
     await ctx.send(embed=embed)
     await ctx.send(num)
 
+"""
 @bot.command()
 async def mem2(ctx):
     await ctx.send(ctx.channel.members)
+"""
 
 
 
