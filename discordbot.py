@@ -4,7 +4,7 @@ import traceback
 import discord
 from typing import Optional
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.typing = False  # typingを受け取らないように
 intents.members = True
 bot = commands.Bot(commands.when_mentioned_or("!"), intents=intents)
