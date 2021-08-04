@@ -11,6 +11,11 @@ bot = commands.Bot(command_prefix='/', intents=intents)
 token = os.environ['DISCORD_BOT_TOKEN']
 
 members = []
+
+beers = []
+wines = []
+coaktails = []
+
 num = 0
 
 
@@ -62,8 +67,8 @@ async def drink(ctx):
 
 @bot.command()
 async def hito(ctx):
-    global members
-    
+    global members, beers, wines, coaktails
+
     all_members = ctx.channel.members
     for member in all_members:
         if member.bot == False:
@@ -71,13 +76,55 @@ async def hito(ctx):
             members.append(data)
     members = list(set(members))
 
+    for member in all_members:
+        if member.bot == False:
+            data = (member.id, 0)
+            beers.append(data)
+            wines.append(data)
+            coaktails.append(data)
+
     await ctx.send(members)
 
 
 @bot.command()
 async def dare(ctx):
     await ctx.send(ctx.author.id)
-    print("hoge")
+
+@bot.command()
+async def dare(ctx):
+    await ctx.send(ctx.author.id)
+
+
+#DRINKS
+@bot.command()
+async def beer(ctx):
+    global beers
+    the_member = ctx.author.id
+    for beer in beers:
+        the_id = beer[0]
+        if the_id == the_member:
+            beer[1] += 1
+            break
+    
+
+
+@bot.command()
+async def wine(ctx):
+    the_member = ctx.author.id
+
+@bot.command()
+async def coaktail(ctx):
+    the_member = ctx.author.id
+
+
+@bot.command()
+async def nomi(ctx):
+    global beers, wines, coaktails
+    ctx.send(beers)
+    ctx.send(wines)
+    ctx.send(coaktails)
+
+
 
 
 
