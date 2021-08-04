@@ -214,32 +214,20 @@ async def my_nomi(ctx):
     await ctx.send(embed = embed)
 
 
-@bot.command()
-async def menu(ctx):
-    br = ":beer:"
-    wn = ":wine_glass:"
-    ct = ":coaktail:"
-
-    # リアクションを付ける
-    await ctx.add_reaction(br)
-    await ctx.add_reaction(wn)
-    await ctx.add_reaction(ct)
-
 
 @bot.event
 async def on_message(message):
     
-   
     if message.author.bot:
         return
 
     await bot.process_commands(message)
 
-    if message.content == 'menu':
+    if message.content == '/menu':
     # リアクションを付ける
-        br = ':beer:'
-        wn = ':wine_glass:'
-        ct = ':coaktail:'
+        br = ":beer:"
+        wn = ":wine_glass:"
+        ct = ":coaktail:"
 
         # リアクションを付ける
         await message.add_reaction(br)
