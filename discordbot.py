@@ -3,13 +3,12 @@ import os
 import traceback
 import discord
 
-token = os.environ['DISCORD_BOT_TOKEN']
 
 intents = discord.Intents.default()
+intents.typing = False  # typingを受け取らないように
 intents.members = True
-intents.typing = False
-
-bot = commands.Bot(command_prefix="/", intents=intents)
+bot = commands.Bot(commands.when_mentioned_or("!"), intents=intents)
+token = os.environ['DISCORD_BOT_TOKEN']
 
 num = 0
 
@@ -49,7 +48,7 @@ async def drink(ctx):
 
 
 @bot.command()
-async def mem2(ctx):
+async def hito(ctx):
     await ctx.send(ctx.channel.members)
 
 
