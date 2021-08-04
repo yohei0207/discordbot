@@ -7,7 +7,7 @@ from typing import Optional
 intents = discord.Intents.all()
 intents.typing = False  # typingを受け取らないように
 intents.members = True
-bot = commands.Bot(commands.when_mentioned_or("!"))
+bot = commands.Bot(commands.when_mentioned_or("!"), intents=intents)
 token = os.environ['DISCORD_BOT_TOKEN']
 
 num = 0
