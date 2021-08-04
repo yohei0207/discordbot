@@ -17,6 +17,8 @@ wines = []
 coaktails = []
 nomi_flag = True
 
+client = discord.Client()
+
 
 
 @bot.event
@@ -212,15 +214,32 @@ async def my_nomi(ctx):
     await ctx.send(embed = embed)
 
 
-@bot.event
+@bot.command()
 async def menu(ctx):
     br = ":beer:"
-    wn = "wine_glass"
-    ct = "coaktail"
+    wn = ":wine_glass:"
+    ct = ":coaktail:"
 
     # リアクションを付ける
     await ctx.add_reaction(br)
     await ctx.add_reaction(wn)
     await ctx.add_reaction(ct)
 
+
+@client.event
+async def on_message(message):
+    # 送信者がBotの場合は反応しない
+
+    UnicodeEmoji = "\N{SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES}"
+
+    # カスタム絵文字
+    CustomEmoji = "<:manuo:784105295328313394>"
+    if message.author.bot:
+        return
+
+    # リアクションを付ける
+    await message.add_reaction(UnicodeEmoji)
+    await message.add_reaction(CustomEmoji)
+
 bot.run(token)
+client.run(token)
