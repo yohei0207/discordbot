@@ -238,6 +238,7 @@ async def on_message(message):
 @bot.event
 async def on_reaction_add(reaction, user):
     # author: リアクションがついたメッセージを書いた人
+    await bot.process_commands(reaction)
     author = reaction.message.author
     await bot.send_message(author, f"{user} さんがリアクションをしました")
 
