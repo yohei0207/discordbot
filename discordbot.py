@@ -248,7 +248,7 @@ async def on_reaction_add(reaction):
 
     #await reaction.message.channel.send(author.id)
     #await reaction.message.channel.send("hoge")
-    await reaction.send("hoge")
+    await bot.send_message("hoge")
 
 @bot.command()
 async def hogehoge(ctx):
