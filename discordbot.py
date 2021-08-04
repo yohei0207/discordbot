@@ -5,9 +5,12 @@ import discord
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
-intents = discord.Intents.all()
+intents = discord.Intents.default()
+intents.members = True
 
 bot = commands.Bot(command_prefix="/", intents=intents)
+
+num = 0
 
 
 @bot.event
@@ -32,6 +35,7 @@ async def wan(ctx):
 
 @bot.command()
 async def drink(ctx):
+    num += 1
     embed=discord.Embed(title='DRINKS')
     embed.add_field(name='ビール', value=':beer:')
     embed.add_field(name='ワイン', value=':wine_glass:')
@@ -39,6 +43,7 @@ async def drink(ctx):
     embed.add_field(name='その他', value=':cocktail:')
     embed.add_field(name='ジュース', value=':tropical_drink:')
     await ctx.send(embed=embed)
+    await ctx.send(num)
 
 @bot.command()
 async def mem2(ctx):
