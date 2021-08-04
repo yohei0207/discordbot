@@ -7,7 +7,7 @@ import discord
 intents = discord.Intents.default()
 intents.typing = False  # typingを受け取らないように
 intents.members = True
-bot = commands.Bot(command_prefix = '/', intents=intents)
+bot = commands.Bot(command_prefix='/',intents=intents)
 token = os.environ['DISCORD_BOT_TOKEN']
 
 num = 0
