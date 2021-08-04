@@ -220,18 +220,19 @@ async def on_message(message):
     
     if message.author.bot:
         return
-    UnicodeEmoji = "\N{SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES}"
+    #UnicodeEmoji = "\N{SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES}"
+
     br = "\N{BEER MUG}"
+    wn = "\N{WINE GLASS}"
+    ct = "\N{COCKTAIL GLASS}"
 
     await bot.process_commands(message)
 
-    await message.add_reaction(UnicodeEmoji)
+    #await message.add_reaction(UnicodeEmoji)
     
     await message.add_reaction(br)
-    """
-    await message.add_reaction(":wine_glass:")
-    await message.add_reaction(":coaktail:")
-    """
+    await message.add_reaction(wn)
+    await message.add_reaction(ct)
 
 
 bot.run(token)
