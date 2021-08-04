@@ -223,15 +223,10 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
-  
-    br = ":beer:"
-    wn = ":wine_glass:"
-    ct = ":coaktail:"
-
-        # リアクションを付ける
-    await message.add_reaction(br)
-    await message.add_reaction(wn)
-    await message.add_reaction(ct)
+    
+    await message.add_reaction(":beer:")
+    await message.add_reaction(":wine_glass:")
+    await message.add_reaction(":coaktail:")
 
 
 bot.run(token)
