@@ -84,9 +84,9 @@ async def hito(ctx):
                 beers.append(data)
                 wines.append(data)
                 coaktails.append(data)
-                nomi_flag = False
 
-    
+
+    nomi_flag = False    
     await ctx.send(members)
     await ctx.send(beers)
     await ctx.send(wines)
