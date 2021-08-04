@@ -72,4 +72,22 @@ async def hito(ctx):
 
     await ctx.send(members)
 
+@bot.command()
+async def dare(ctx):
+    global members
+    
+    all_members = ctx.channel.members
+    for member in all_members:
+        if member.bot == False:
+            members.append(member)
+    members = list(set(members))
+
+    await ctx.send(members)
+
+@bot.command()
+async def dare(ctx):
+    await ctx.send(ctx.author.id)
+
+
+
 bot.run(token)
