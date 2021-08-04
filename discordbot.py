@@ -80,12 +80,16 @@ async def hito(ctx):
     for member in all_members:
         if member.bot == False:
             if nomi_flag == True:
-                data = {member.id, 0}
+                data = [member.id, 0]
                 beers.append(data)
                 wines.append(data)
                 coaktails.append(data)
                 nomi_flag = False
 
+    beers = list(set(beers))
+    wines = list(set(wines))
+    coaktails = list(set(coaktails))
+    
     await ctx.send(members)
     await ctx.send(beers)
     await ctx.send(wines)
