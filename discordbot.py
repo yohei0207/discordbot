@@ -235,11 +235,11 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
-    if message.content == "menu":
+    if message.content == 'menu':
     # リアクションを付ける
-        br = ":beer:"
-        wn = ":wine_glass:"
-        ct = ":coaktail:"
+        br = ':beer:'
+        wn = ':wine_glass:'
+        ct = ':coaktail:'
 
         # リアクションを付ける
         await message.add_reaction(br)
