@@ -17,7 +17,7 @@ wines = []
 coaktails = []
 nomi_flag = True
 
-client = discord.Client()
+
 
 
 
@@ -226,7 +226,7 @@ async def menu(ctx):
     await ctx.add_reaction(ct)
 
 
-@client.event
+@cbot.event
 async def on_message(message):
     # 送信者がBotの場合は反応しない
 
@@ -237,9 +237,10 @@ async def on_message(message):
     if message.author.bot:
         return
 
+    await bot.process_commands(message)
     # リアクションを付ける
     await message.add_reaction(UnicodeEmoji)
     await message.add_reaction(CustomEmoji)
+    
 
 bot.run(token)
-client.run(token)
