@@ -226,7 +226,7 @@ async def menu(ctx):
     await ctx.add_reaction(ct)
 
 
-@cbot.event
+@bot.event
 async def on_message(message):
     # 送信者がBotの場合は反応しない
 
