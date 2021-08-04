@@ -2,7 +2,7 @@ from discord.ext import commands
 import os
 import traceback
 import discord
-
+from typing import Optional
 
 intents = discord.Intents.default()
 intents.typing = False  # typingを受け取らないように
@@ -33,6 +33,7 @@ async def nya(ctx):
 async def wan(ctx):
     await ctx.send('wan')
 
+"""
 @bot.command()
 async def drink(ctx):
     global num
@@ -50,6 +51,7 @@ async def drink(ctx):
 @bot.command()
 async def hito(ctx):
     await ctx.send(ctx.channel.members)
+"""
 
 
 
