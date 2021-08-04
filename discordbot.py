@@ -239,14 +239,14 @@ async def on_message(message):
 
 
 @bot.event
-async def on_reaction_add(reaction, user):
+async def on_reaction_add(reaction):
     # author: リアクションがついたメッセージを書いた人
     global num
     num += 1
     await bot.process_commands(reaction)
     author = reaction.message.author
     
-    await bot.send_message(author, f"{user} さんがリアクションをしました")
+    await reaction.message.send(author.id)
 
 @bot.command()
 async def hogehoge(ctx):
