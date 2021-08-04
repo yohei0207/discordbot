@@ -68,7 +68,7 @@ async def hito(ctx):
     for member in all_members:
         if member.bot == False:
             members.append(member.discriminator)
-    set(members)
+    members = set(members)
 
     await ctx.send(members)
 
