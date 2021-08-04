@@ -100,21 +100,14 @@ async def dare(ctx):
 async def beer(ctx):
     global beers
     the_member = ctx.author.id
-    for beer in beers:
-        the_id = beer[0]
+    for br in beers:
+        the_id = br[0]
         if the_id == the_member:
-            beer[1] += 1
+            br[1] += 1
             break
     
 
 
-@bot.command()
-async def wine(ctx):
-    the_member = ctx.author.id
-
-@bot.command()
-async def coaktail(ctx):
-    the_member = ctx.author.id
 
 
 @bot.command()
