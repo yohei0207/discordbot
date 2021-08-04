@@ -7,6 +7,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 intents = discord.Intents.default()
 intents.members = True
+intents.typing = False
 
 bot = commands.Bot(command_prefix="/")
 
@@ -35,6 +36,7 @@ async def wan(ctx):
 
 @bot.command()
 async def drink(ctx):
+    global num
     num += 1
     embed=discord.Embed(title='DRINKS')
     embed.add_field(name='ビール', value=':beer:')
