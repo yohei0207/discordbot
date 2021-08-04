@@ -90,20 +90,6 @@ async def hito(ctx):
     nomi_flag = False
 
 
-    for member in all_members:
-        if member.bot == False:
-            for br in beers:
-                if br[0] == member.id:
-                    break
-            
-            data = [member.id, 0]
-            data2 = [member.id, 0]
-            data3 = [member.id, 0]
-            beers.append(data)
-            wines.append(data2)
-            coaktails.append(data3)
-
-        
 
     await ctx.send(members)
 
