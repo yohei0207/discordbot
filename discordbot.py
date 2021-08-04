@@ -239,7 +239,7 @@ async def on_message(message):
 
 
 @bot.event
-async def on_reaction_add(reaction):
+async def on_reaction_add(reaction, user):
     # author: リアクションがついたメッセージを書いた人
     global num
     num += 1
