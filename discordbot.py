@@ -7,7 +7,7 @@ import discord
 intents = discord.Intents.default()
 intents.typing = False  # typingを受け取らないように
 intents.members = True
-bot = commands.Bot(command_prefix='/',intents=intents)
+bot = commands.Bot(command_prefix='/', intents=intents)
 token = os.environ['DISCORD_BOT_TOKEN']
 
 num = 0
@@ -50,6 +50,11 @@ async def drink(ctx):
 """
 @bot.command()
 async def hito(ctx):
-    await ctx.send(ctx.channel.members)
+    members = ctx.channel.members
+    for member in members:
+        await ctx.send(member)
+
+
+    #await ctx.send(ctx.channel.members)
 
 bot.run(token)
