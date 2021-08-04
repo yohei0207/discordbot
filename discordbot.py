@@ -47,14 +47,13 @@ async def drink(ctx):
     await ctx.send(embed=embed)
     await ctx.send(num)
 
-
+"""
 @bot.command()
 async def hito(ctx):
     await ctx.send(ctx.channel.members)
-"""
+
 
 
 
 
 bot.run(token)
-
