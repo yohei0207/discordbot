@@ -17,7 +17,6 @@ wines = []
 coaktails = []
 nomi_flag = True
 
-num = 0
 
 
 @bot.event
@@ -54,27 +53,27 @@ async def wan(ctx):
 
 @bot.command()
 async def drinks(ctx):
-    global num
-    num += 1
     embed=discord.Embed(title='DRINKS')
-    embed.add_field(name='ビール', value=':beer:')
-    embed.add_field(name='ワイン', value=':wine_glass:')
-    embed.add_field(name='ウイスキー', value=':whisky:')
-    embed.add_field(name='その他', value=':cocktail:')
-    embed.add_field(name='ジュース', value=':tropical_drink:')
-    await ctx.send(embed=embed)
-    await ctx.send(num)
+    embed.add_field(name='/beer', value='ビール')
+    embed.add_field(name='/wine', value='ワイン')
+    embed.add_field(name='/coaktail', value='カクテル')
+    
 
 
 @bot.command()
 async def hito(ctx):
     global members, beers, wines, coaktails, nomi_flag
 
+    embed=discord.Embed(title='MEMBERS')
+
+
     all_members = ctx.channel.members
     for member in all_members:
         if member.bot == False:
             data = (member.id, member.name, member.discriminator)
             members.append(data)
+            embed.add_field(title=member.name, discription = "")
+
     members = list(set(members))
 
     for member in all_members:
@@ -91,11 +90,7 @@ async def hito(ctx):
 
 
 
-    await ctx.send(members)
-
-    #await ctx.send(beers)
-    #await ctx.send(wines)
-    #await ctx.send(coaktails)
+    await ctx.send(embed=embed)
 
 
 @bot.command()
@@ -110,7 +105,6 @@ async def beer(ctx):
     global beers
     the_member = ctx.author.id
     for br in beers:
-        await ctx.send(br)
         the_id = br[0]
         if the_id == the_member:
             br[1] += 1
@@ -131,7 +125,6 @@ async def coaktail(ctx):
     global coaktails
     the_member = ctx.author.id
     for ct in coaktails:
-        await ctx.send(ct)
         the_id = ct[0]
         if the_id == the_member:
             ct[1] += 1
@@ -142,9 +135,42 @@ async def coaktail(ctx):
 @bot.command()
 async def all_nomi(ctx):
     global beers, wines, coaktails
-    await ctx.send(beers)
-    await ctx.send(wines)
-    await ctx.send(coaktails)
+
+    mybr = 0
+    mywn = 0
+    myct = 0
+    myname = 0
+
+    
+        
+    for mem in members:
+        myid = mem[0]
+        myname = mem[1]
+
+        for br in beers:
+            if br[0] == myid:
+                mybr = br[1]
+                break
+    
+        for wn in wines:
+            if wn[0] == myid:
+                mywn = wn[1]
+                break
+
+        for ct in coaktails:
+            if ct[0] == myid:
+                myct = ct[1]
+                break
+    
+        embed = discord.Embed(title=myname + "さんの飲み状況",color=0xff0000) #16進数カラーコード
+        embed.add_field(name="ビール",value=mybr)
+        embed.add_field(name="ワイン",value=mywn)
+        embed.add_field(name="カクテル",value=myct)
+    
+        await ctx.send(embed = embed)
+
+
+
 
 
 
@@ -179,20 +205,22 @@ async def my_nomi(ctx):
             break
     
     embed = discord.Embed(title=myname,description="あなたの飲み状況",color=0xff0000) #16進数カラーコード
-    embed.add_field(name="ビール",value=mybr + "杯")
-    embed.add_field(name="ワイン",value=mywn + "杯")
-    embed.add_field(name="カクテル",value=mywn + "杯")
+    embed.add_field(name="ビール",value=mybr)
+    embed.add_field(name="ワイン",value=mywn)
+    embed.add_field(name="カクテル",value=myct)
+    
+    await ctx.send(embed = embed)
 
 
-    await ctx.send(beers)
-    await ctx.send(wines)
-    await ctx.send(coaktails)
+@bot.event
+async def menu(ctx):
+    br = ":beer:"
+    wn = "wine_glass"
+    ct = "coaktail"
 
-
-
-
-
-
-
+    # リアクションを付ける
+    await ctx.add_reaction(br)
+    await ctx.add_reaction(wn)
+    await ctx.add_reaction(ct)
 
 bot.run(token)
