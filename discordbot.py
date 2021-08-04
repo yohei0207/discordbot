@@ -238,18 +238,21 @@ async def on_message(message):
     await message.add_reaction(ct)
 
 
+
 @bot.event
 async def on_reaction_add(reaction, user):
     # author: リアクションがついたメッセージを書いた人
     global num
     num += 1
     await bot.process_commands(reaction)
-    #author = reaction.message.author
 
-    #await reaction.message.channel.send(author.id)
-    #await reaction.message.channel.send("hoge")
     await reaction.send("hoge")
-    
+
+
+@bot.command()
+async def greet():
+    channel = bot.get_channel(871029026163159104)
+    await channel.send('おはよう！')
 
 @bot.command()
 async def hogehoge(ctx):
