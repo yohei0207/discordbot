@@ -108,6 +108,7 @@ async def beer(ctx):
         the_id = br[0]
         if the_id == the_member:
             br[1] += 1
+            await ctx.send("hoge")
             break
     
 
