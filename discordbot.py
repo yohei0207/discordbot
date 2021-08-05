@@ -194,6 +194,7 @@ async def my_nomi(ctx):
     myname = 0
 
     myid = ctx.author.id
+    myname = ctx.author.name
     for mem in members:
         if mem[0] == myid:
             myname = mem[1]
@@ -227,7 +228,7 @@ async def my_nomi(ctx):
     await ctx.send(embed = embed)
 
 
-
+"""
 @bot.event
 async def on_message(message):
     
@@ -249,6 +250,7 @@ async def on_message(message):
 
 
 
+
 @bot.event
 async def on_reaction_add(reaction, user):
     # author: リアクションがついたメッセージを書いた人
@@ -266,6 +268,7 @@ async def on_reaction_add(reaction, user):
 async def greet(ctx):
     channel = bot.get_channel(871029026163159104)
     await channel.send('おはよう！')
+"""
 
 @bot.command()
 async def hogehoge(ctx):
