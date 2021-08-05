@@ -107,13 +107,18 @@ async def dare(ctx):
 #DRINKS
 @bot.command()
 async def beer(ctx):
+    br = "\N{BEER MUG}"
     global beers
     the_member = ctx.author.id
+    the_member_name = ctx.author.name
     for br in beers:
         the_id = br[0]
         if the_id == the_member:
             br[1] += 1
             break
+    await ctx.send(br)
+    await ctx.send(the_member_name + "さんビール一丁！")
+    
 
 @bot.command()
 async def wine(ctx):
@@ -209,10 +214,15 @@ async def my_nomi(ctx):
             myct = ct[1]
             break
     
+    sum_nomi = mybr + mywn + myct
+    
     embed = discord.Embed(title=myname,description="あなたの飲み状況",color=0xff0000) #16進数カラーコード
     embed.add_field(name="ビール",value=mybr)
     embed.add_field(name="ワイン",value=mywn)
     embed.add_field(name="カクテル",value=myct)
+    if sum_nomi >= 5:
+        await ctx.send("飲みすぎ！！")
+
     
     await ctx.send(embed = embed)
 
