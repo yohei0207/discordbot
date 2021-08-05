@@ -18,9 +18,6 @@ wines = []
 coaktails = []
 nomi_flag = True
 
-num = 0
-
-
 
 
 
@@ -31,29 +28,12 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 
-"""
-@bot.event
-async def on_ready(ctx):
-    global members
-    all_members = ctx.channel.members
-    for member in all_members:
-        members.append(member)
-"""
 
-
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
 
 
 @bot.command()
 async def nya(ctx):
     await ctx.send('nya')
-
-@bot.command()
-async def wan(ctx):
-    await ctx.send('wan')
 
 
 @bot.command()
@@ -94,13 +74,6 @@ async def hito(ctx):
     nomi_flag = False
 
 
-
-  
-
-
-@bot.command()
-async def dare(ctx):
-    await ctx.send(ctx.author.id)
 
 
 
@@ -231,59 +204,9 @@ async def my_nomi(ctx):
     embed.add_field(name="ワイン",value=mywn)
     embed.add_field(name="カクテル",value=myct)
     if sum_nomi >= 5:
-        await ctx.send("飲みすぎ！！")
         embed.add_field(name="飲みすぎです",value="控えましょう", inline = False)
         
     
     await ctx.send(embed = embed)
-
-
-"""
-@bot.event
-async def on_message(message):
-    
-    if message.author.bot:
-        return
-    #UnicodeEmoji = "\N{SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES}"
-
-    br = "\N{BEER MUG}"
-    wn = "\N{WINE GLASS}"
-    ct = "\N{COCKTAIL GLASS}"
-
-    await bot.process_commands(message)
-
-    #await message.add_reaction(UnicodeEmoji)
-    
-    await message.add_reaction(br)
-    await message.add_reaction(wn)
-    await message.add_reaction(ct)
-
-
-
-
-@bot.event
-async def on_reaction_add(reaction, user):
-    # author: リアクションがついたメッセージを書いた人
-    global num
-    num += 1
-    await bot.process_commands(reaction)
-
-    #channel = bot.get_channel(871029026163159104)
-    #await channel.send('おはよう！')
-    await bot.delete_message(reaction)
-
-
-
-@bot.command()
-async def greet(ctx):
-    channel = bot.get_channel(871029026163159104)
-    await channel.send('おはよう！')
-"""
-
-@bot.command()
-async def hogehoge(ctx):
-    global num
-    await ctx.send(num)
-
 
 bot.run(token)
