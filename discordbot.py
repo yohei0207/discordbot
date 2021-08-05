@@ -232,7 +232,7 @@ async def my_nomi(ctx):
     embed.add_field(name="カクテル",value=myct)
     if sum_nomi >= 5:
         await ctx.send("飲みすぎ！！")
-
+        
     
     await ctx.send(embed = embed)
 
