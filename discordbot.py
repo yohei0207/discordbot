@@ -107,8 +107,8 @@ async def dare(ctx):
 #DRINKS
 @bot.command()
 async def beer(ctx):
-    br = "\N{BEER MUG}"
-    global beers
+    global beer
+    brs = "\N{BEER MUG}"
     the_member = ctx.author.id
     the_member_name = ctx.author.name
     for br in beers:
@@ -116,7 +116,7 @@ async def beer(ctx):
         if the_id == the_member:
             br[1] += 1
             break
-    await ctx.send(br)
+    await ctx.send(brs)
     await ctx.send(the_member_name + "さんビール一丁追加！")
 
     
@@ -124,7 +124,7 @@ async def beer(ctx):
 @bot.command()
 async def wine(ctx):
     global wines
-    wn = "\N{WINE GLASS}"
+    wns = "\N{WINE GLASS}"
     the_member = ctx.author.id
     the_member_name = ctx.author.name
     for wn in wines:
@@ -132,14 +132,14 @@ async def wine(ctx):
         if the_id == the_member:
             wn[1] += 1
             break
-    await ctx.send(wn)
+    await ctx.send(wns)
     await ctx.send(the_member_name + "さんワイン一杯追加！")
     
 
 @bot.command()
 async def cocktail(ctx):
     global coaktails
-    ct = "\N{COCKTAIL GLASS}"
+    cts = "\N{COCKTAIL GLASS}"
     the_member = ctx.author.id
     the_member_name = ctx.author.name
     for ct in coaktails:
@@ -147,7 +147,7 @@ async def cocktail(ctx):
         if the_id == the_member:
             ct[1] += 1
             break
-    await ctx.send(ct)
+    await ctx.send(cts)
     await ctx.send(the_member_name + "さんカクテル一杯追加！")
     
 
