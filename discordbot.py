@@ -57,11 +57,11 @@ async def wan(ctx):
 
 
 @bot.command()
-async def drinks(ctx):
+async def drink_menu(ctx):
     embed=discord.Embed(title='DRINKS')
     embed.add_field(name='/beer', value='ビール')
     embed.add_field(name='/wine', value='ワイン')
-    embed.add_field(name='/coaktail', value='カクテル')
+    embed.add_field(name='/cocktail', value='カクテル')
     
 
 
@@ -116,8 +116,10 @@ async def beer(ctx):
         if the_id == the_member:
             br[1] += 1
             break
+    await bot.delete_message(ctx)
     await ctx.send(br)
     await ctx.send(the_member_name + "さんビール一丁！")
+
     
 
 @bot.command()
@@ -131,7 +133,7 @@ async def wine(ctx):
             break
 
 @bot.command()
-async def coaktail(ctx):
+async def cocktail(ctx):
     global coaktails
     the_member = ctx.author.id
     for ct in coaktails:
@@ -144,7 +146,7 @@ async def coaktail(ctx):
 
 @bot.command()
 async def all_nomi(ctx):
-    global beers, wines, coaktails
+    global members, beers, wines, coaktails
 
     mybr = 0
     mywn = 0
@@ -152,7 +154,6 @@ async def all_nomi(ctx):
     myname = 0
 
     
-        
     for mem in members:
         myid = mem[0]
         myname = mem[1]
