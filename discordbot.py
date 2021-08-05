@@ -62,6 +62,7 @@ async def drink_menu(ctx):
     embed.add_field(name='/beer', value='ビール')
     embed.add_field(name='/wine', value='ワイン')
     embed.add_field(name='/cocktail', value='カクテル')
+    await ctx.send(embed = embed)
     
 
 
@@ -69,7 +70,6 @@ async def drink_menu(ctx):
 async def hito(ctx):
     global members, beers, wines, coaktails, nomi_flag
 
-   
 
 
     all_members = ctx.channel.members
@@ -116,31 +116,39 @@ async def beer(ctx):
         if the_id == the_member:
             br[1] += 1
             break
-    await ctx.delete()
     await ctx.send(br)
-    await ctx.send(the_member_name + "さんビール一丁！")
+    await ctx.send(the_member_name + "さんビール一丁追加！")
 
     
 
 @bot.command()
 async def wine(ctx):
     global wines
+    wn = "\N{WINE GLASS}"
     the_member = ctx.author.id
+    the_member_name = ctx.author.name
     for wn in wines:
         the_id = wn[0]
         if the_id == the_member:
             wn[1] += 1
             break
+    await ctx.send(wn)
+    await ctx.send(the_member_name + "さんワイン一杯追加！")
+    
 
 @bot.command()
 async def cocktail(ctx):
     global coaktails
+    ct = "\N{COCKTAIL GLASS}"
     the_member = ctx.author.id
+    the_member_name = ctx.author.name
     for ct in coaktails:
         the_id = ct[0]
         if the_id == the_member:
             ct[1] += 1
             break
+    await ctx.send(ct)
+    await ctx.send(the_member_name + "さんカクテル一杯追加！")
     
 
 
