@@ -69,7 +69,7 @@ async def drink_menu(ctx):
 async def hito(ctx):
     global members, beers, wines, coaktails, nomi_flag
 
-    embed=discord.Embed(title='MEMBERS')
+   
 
 
     all_members = ctx.channel.members
@@ -77,7 +77,7 @@ async def hito(ctx):
         if member.bot == False:
             data = (member.id, member.name, member.discriminator)
             members.append(data)
-            embed.add_field(title=member.name, discription = "")
+            
 
     members = list(set(members))
 
@@ -95,7 +95,7 @@ async def hito(ctx):
 
 
 
-    await ctx.send(embed=embed)
+  
 
 
 @bot.command()
@@ -116,7 +116,7 @@ async def beer(ctx):
         if the_id == the_member:
             br[1] += 1
             break
-    await bot.delete_message(ctx)
+    await ctx.delete()
     await ctx.send(br)
     await ctx.send(the_member_name + "さんビール一丁！")
 
