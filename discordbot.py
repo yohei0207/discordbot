@@ -245,8 +245,10 @@ async def on_reaction_add(reaction, user):
     global num
     num += 1
     await bot.process_commands(reaction)
-    channel = bot.get_channel(871029026163159104)
-    await channel.send('おはよう！')
+
+    #channel = bot.get_channel(871029026163159104)
+    #await channel.send('おはよう！')
+    await bot.delete_message(reaction)
 
 
 
